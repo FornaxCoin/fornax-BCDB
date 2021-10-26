@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b79fb36a-996b-461d-8530-5a1a581ea607" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../fornax/Genesis.json" beforeDir="false" afterPath="$PROJECT_DIR$/../fornax/Genesis.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="2" />
+  </component>
+  <component name="ProjectId" id="1kQhxuyHqQBrNSFNK2GIObEmtYr" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="NEW_TOOLWINDOW_STRIPE_DEFAULTS" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="add_unversioned_files" value="$PROJECT_DIR$/.env" />
+    <property name="ignore_missing_gitignore" value="true" />
+    <property name="javascript.nodejs.core.library.configured.version" value="12.14.1" />
+    <property name="javascript.nodejs.core.library.typings.version" value="12.20.25" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/helpers" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/schema" />
+      <recent name="$PROJECT_DIR$/models" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/helpers" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.start">
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="start2" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start2" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.start" />
+        <item itemvalue="npm.start2" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b79fb36a-996b-461d-8530-5a1a581ea607" name="Default Changelist" comment="" />
+      <created>1605638977436</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1605638977436</updated>
+      <workItem from="1605638979681" duration="302000" />
+      <workItem from="1605869770309" duration="1904000" />
+      <workItem from="1605981511706" duration="581000" />
+      <workItem from="1606201578377" duration="3557000" />
+      <workItem from="1606283366985" duration="4623000" />
+      <workItem from="1606309928330" duration="598000" />
+      <workItem from="1606418441478" duration="4997000" />
+      <workItem from="1606578523362" duration="2011000" />
+      <workItem from="1606587591569" duration="1208000" />
+      <workItem from="1606687343525" duration="136000" />
+      <workItem from="1606713910350" duration="11000" />
+      <workItem from="1606738769287" duration="283000" />
+      <workItem from="1606807984739" duration="390000" />
+      <workItem from="1606827059371" duration="8204000" />
+      <workItem from="1607384465617" duration="681000" />
+      <workItem from="1607427877699" duration="3283000" />
+      <workItem from="1607702439551" duration="375000" />
+      <workItem from="1607703107133" duration="545000" />
+      <workItem from="1608066510958" duration="227000" />
+      <workItem from="1608121877893" duration="1956000" />
+      <workItem from="1608978954384" duration="2219000" />
+      <workItem from="1632095067646" duration="3919000" />
+      <workItem from="1632145710365" duration="2377000" />
+      <workItem from="1632661442637" duration="203000" />
+      <workItem from="1632669312180" duration="237000" />
+      <workItem from="1632692555697" duration="860000" />
+      <workItem from="1632833917678" duration="941000" />
+      <workItem from="1633430469887" duration="25000" />
+      <workItem from="1634052588472" duration="752000" />
+      <workItem from="1635161716614" duration="25035000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+</project>
