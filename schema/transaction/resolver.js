@@ -1,6 +1,8 @@
-const {Transaction} = require('../../models');
+const {Transaction, Block, Method} = require('../../models');
 const {ApolloError} = require("apollo-server-express");
-
+import Web3 from 'web3';
+import {MAIN_NET_HTTP} from '../../config'
+const web3 = new Web3(MAIN_NET_HTTP);
 
 const TransactionLabels = {
     docs: 'transactions',
@@ -41,6 +43,15 @@ let SortBy = (sortBy)=>{
 }
 
 const resolvers = {
+    Transaction: {
+      block: async (parent) =>{
+          return await Block.findOne({"number":parent.blockNumber})
+      },
+      method: async (parent) => {
+          let hash = parent.input.slice(0, 10);
+          return await Method.findOne({"hash":hash})
+      }
+    },
     Query: {
         transactions: () => {
             return new ApolloError("Not Allowed", 405);
@@ -58,6 +69,7 @@ const resolvers = {
         },
         transactionById: async (_,args)=>{
             let transaction= await Transaction.findById(args.id);
+            console.log(web3.utils.toAscii(transaction.input))
             console.log("Transaction:",transaction);
             return transaction;
         },
@@ -75,9 +87,8 @@ const resolvers = {
                 customLabels: TransactionLabels,
                 sort: SortBy(sortBy),
             };
-            let transactions = await Transaction.paginate({'$or':[{from:address},{to:address}]}, options);
-            return transactions
-            return await Transaction.find({'$or':[{from:address},{to:address}]}).sort(SortBy(sortBy));
+           return await Transaction.paginate({'$or':[{from:address},{to:address}, {contractAddress:address}]}, options);
+
         },
 
     },

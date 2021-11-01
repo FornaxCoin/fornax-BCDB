@@ -2,6 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b79fb36a-996b-461d-8530-5a1a581ea607" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../BCDBSync/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BCDBSync/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BCDBSync/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BCDBSync/.idea/libraries/Generated_files.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BCDBSync/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BCDBSync/.idea/runConfigurations/bin_www.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BCDBSync/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BCDBSync/.idea/watcherTasks.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BCDBSync/babel.config.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BCDBSync/config/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BCDBSync/helpers/Web3WebSocket.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BCDBSync/helpers/Web3Wrapper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BCDBSync/helpers/sync.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BCDBSync/models/block.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BCDBSync/models/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BCDBSync/models/transaction.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BCDBSync/utils/connection.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/method.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schema/method/query.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schema/method/resolver.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schema/method/type.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schema/resolver.js" beforeDir="false" afterPath="$PROJECT_DIR$/schema/resolver.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schema/transaction/resolver.js" beforeDir="false" afterPath="$PROJECT_DIR$/schema/transaction/resolver.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schema/transaction/type.js" beforeDir="false" afterPath="$PROJECT_DIR$/schema/transaction/type.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schema/typeDefs.js" beforeDir="false" afterPath="$PROJECT_DIR$/schema/typeDefs.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../fornax/Genesis.json" beforeDir="false" afterPath="$PROJECT_DIR$/../fornax/Genesis.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -17,7 +46,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="2" />
@@ -39,19 +68,19 @@
     <property name="ignore_missing_gitignore" value="true" />
     <property name="javascript.nodejs.core.library.configured.version" value="12.14.1" />
     <property name="javascript.nodejs.core.library.typings.version" value="12.20.25" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/schema" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/helpers" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/schema" />
       <recent name="$PROJECT_DIR$/models" />
       <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/helpers" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/helpers" />
     </key>
   </component>

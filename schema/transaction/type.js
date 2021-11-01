@@ -23,6 +23,8 @@ const transactionTypeDefs = gql`
         logs:[Logs],
         createdAt: String!,
         updatedAt: String!,
+        block: Block,
+        method: Method,
     }
     type Logs {
         logIndex: Int,
