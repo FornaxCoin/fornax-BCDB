@@ -69,8 +69,6 @@ const resolvers = {
         },
         transactionById: async (_,args)=>{
             let transaction= await Transaction.findById(args.id);
-            console.log(web3.utils.toAscii(transaction.input))
-            console.log("Transaction:",transaction);
             return transaction;
         },
         transactionByTransactionHash:async(_,{transactionHash})=>{
