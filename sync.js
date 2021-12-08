@@ -1,50 +1,26 @@
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var sassMiddleware = require('node-sass-middleware');
-const mongoose = require('mongoose');
-import * as AppModels from './models';
-import {syncBlockChain} from "./helpers/sync";
-import bodyParser from 'body-parser';
+let date_ob = new Date();
+let date = ("0" + date_ob.getDate()).slice(-2);
+console.log(date);
+let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+// current year
+let year = date_ob.getFullYear();
+// current hours
+let hours = date_ob.getHours();
+// current minutes
+let minutes = date_ob.getMinutes();
+// current seconds
+let seconds = date_ob.getSeconds();
+// prints date in YYYY-MM-DD format
+console.log(year + "-" + month + "-" + date);
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-let cors=require('cors');
-
-// connect to DB mongo
-const uri = "mongodb+srv://qasim:qasim1234@abdulla.eftvp.mongodb.net/bcdbTest?retryWrites=true&w=majority";
-mongoose.connect(uri);
-mongoose.Promise = global.Promise;
-mongoose.connection.once('open', () => {
-    console.log(' 🍃 connected to mongoDB mLab');
-})
-
-var app = express();
-
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
-app.use(cors());
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(sassMiddleware({
-    src: path.join(__dirname, 'public'),
-    dest: path.join(__dirname, 'public'),
-    indentedSyntax: true, // true = .sass and false = .scss
-    sourceMap: true
-}));
-//
-// app.listen(4001, () => {
-//     console.log('🚀 now listening for requests on port 4001');
-// });
-
-(async()=>{
-    console.log("hello")
-    await syncBlockChain();
-})()
-
-module.exports = app;
+// prints date & time in YYYY-MM-DD HH:MM:SS format
+console.log(year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds);
+console.log(`${year}-${month}-${(parseInt(date)+1).toString()} 00:00:00.000`)
+let unixTimestampFrom = Math.floor(new Date(`${year}-05-01 00:00:00.000`).getTime()/1000);
+let unixTimestampTo = Math.floor(new Date(`${year}-${month}-${date} 00:00:00.000`).getTime()/1000);
+console.log(unixTimestampFrom);
+let newdate = new Date(( 1) * 1000);
+date = ("0" + newdate.getDate()).slice(-2);
+month = ("0" + (newdate.getMonth() + 1)).slice(-2);
+console.log(`${newdate.getFullYear()}-${month}-${date} 00:00:00.000`);
+console.log(unixTimestampTo);

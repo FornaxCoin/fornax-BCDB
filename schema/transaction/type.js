@@ -26,6 +26,17 @@ const transactionTypeDefs = gql`
         block: Block,
         method: Method,
     }
+    type RecordedTransaction{
+        date: Int!,
+        counts: Int,
+    }
+    type RecordAccountTransaction{
+        toCount:Int,
+        fromCount:Int,
+        toTotal:Int,
+        fromTotal:Int,
+        month:String,
+    }
     type Logs {
         logIndex: Int,
         transactionIndex: Int,

@@ -19,7 +19,7 @@ export const {
     TEST_NET_WS = `${NET_WS}${TEST}:${TEST_NET_PORT_WS}`,
     // MAIN_NET_WS = `${NET_WS}${MAIN}:${MAIN_NET_PORT_WS}`,
     // MAIN_NET_HTTP= `${NET_HTTP}${MAIN}:${MAIN_NET_PORT_HTTP}`
-    MAIN_NET_WS = 'ws://127.0.0.1:8545',
-    MAIN_NET_HTTP= 'HTTP://127.0.0.1:8545',
+    MAIN_NET_WS = 'wss://node.watchfornax.com/ws',
+    MAIN_NET_HTTP= 'https://node.watchfornax.com/rpc',
     MONGO_URI,
 } = parsed;
