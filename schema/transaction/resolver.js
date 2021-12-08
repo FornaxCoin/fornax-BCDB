@@ -77,17 +77,19 @@ const resolvers = {
             return await Transaction.findOne({transactionHash: transactionHash});
         },
         transactionsByAddress: async (_, {address, sortBy}) => {
+            address = address.toLowerCase()
             return new ApolloError("Not Allowed", 405);
             return await Transaction.find({'$or': [{from: address}, {to: address}]}).sort(SortBy(sortBy));
         },
         transactionsByAddressWithPagination: async (_, {page, limit, address, sortBy}) => {
+            address = address.toLowerCase()
             const options = {
                 page: page || 1,
                 limit: limit || 10,
                 customLabels: TransactionLabels,
                 sort: SortBy(sortBy),
             };
-            return await Transaction.paginate({'$or': [{from: `/^${address}$/i`}, {to: `/^${address}$/i`}, {contractAddress: `/^${address}$/i`}]}, options);
+            return await Transaction.paginate({'$or': [{from: address}, {to: address}, {contractAddress: address}]}, options);
         },
         transactionsOf14Days: async () => {
             let date_ob = new Date();
@@ -110,11 +112,14 @@ const resolvers = {
                 // console.log("unixTimestampFrom: " + unixTimestampFrom);
                 // console.log("unixTimestampTo: " + unixTimestampTo);
                 let filtered = lodash.filter(transactions, function (o) {
-                    return (lodash.gte(o.timestamp, unixTimestampFrom) && lodash.lte(o.timestamp, unixTimestampTo));
+                    console.log("filtered: " + o.timestamp);
+                    if(o.timestamp >= unixTimestampFrom && o.timestamp <= unixTimestampTo ){
+                        console.log("find: " + o.timestamp);
+                        return true
+                    }
                 });
                 let recordedTransaction = {
                     date: unixTimestampFrom,
-                    dateTo: unixTimestampTo,
                     counts: filtered.length,
                 }
                 data.push(recordedTransaction);
@@ -145,17 +150,16 @@ const resolvers = {
             console.log('To:',unixTimestamp);
             console.log('From:',unixTimestampFrom);
             let transactions = []
+            address = address.toLowerCase()
             transactions = await Transaction.find({
                 '$and': [
                     {
-                        '$or': [
-                            {from: `/^${address}$/i`},
-                            {to: `/^${address}$/i`}
-                        ]
+                        '$or': [{from: address}, {to: address}]
                     },
-                    {timestamp: {'$gte': unixTimestampFrom, '$lte': unixTimestamp}}]
+                    {timestamp: {'$gte': unixTimestampFrom, '$lte': unixTimestamp}}
+                ]
             }, {timestamp: 1, value: 1, from: 1, to: 1});
-            console.log('transactions:', transactions);
+            // console.log('transactions:', transactions);
             let nextMonth = currentMonth;
             let nextYear = currentYear;
             for (let i = 7; i > 0; i--) {
@@ -169,32 +173,42 @@ const resolvers = {
                 let unixTimestampTo = Math.floor(new Date(`${nextYear}-${nextMonth}-01 00:00:00.000`).getTime() / 1000);
                 currentYear = nextYear;
                 currentMonth = nextMonth;
-                console.log("unixTimestampFrom: " + unixTimestampFrom);
-                console.log("unixTimestampTo: " + unixTimestampTo);
+                // console.log("unixTimestampFrom: " + unixTimestampFrom);
+                // console.log("unixTimestampTo: " + unixTimestampTo);
 
 
                 let filteredMonthly = lodash.filter(transactions, function (o) {
-                    return (lodash.gte(o.timestamp, unixTimestampFrom) && _.lte(o.timestamp, unixTimestampTo));
+                    return (lodash.gte(o.timestamp, unixTimestampFrom) && lodash.lte(o.timestamp, unixTimestampTo));
                 });
-                console.log("filteredMonthly: " + filteredMonthly)
+                // console.log("filteredMonthly: " + filteredMonthly)
+                let totalTo = 0, totalFrom = 0;
                 let filteredTo = lodash.filter(filteredMonthly, function (o) {
-                    return (lodash.isMatch(filteredMonthly, { 'to': address }));
+                    if (o.to === address) {
+                        totalTo += parseInt(o.value)
+                        return true;
+                    }
                 });
+                // console.log("filteredTo: " + filteredTo)
 
                 let filteredFrom = lodash.filter(filteredMonthly, function (o) {
-                    return (lodash.isMatch(filteredMonthly, { 'from': address }));
+                    if (o.from === address) {
+                        totalFrom += parseInt(o.value)
+                        return true;
+                    }
                 });
+                // console.log("filteredFrom: " + filteredFrom)
+
                 let recordedTransaction = {
                     toCount:filteredTo.length,
-                    fromCount:lodash.sumBy(filteredTo, 'value'),
-                    toTotal:filteredFrom.length,
-                    fromTotal:lodash.sumBy(filteredFrom, 'value'),
+                    toTotal:totalTo,
+                    fromCount:filteredFrom.length,
+                    fromTotal:totalFrom,
                     month:unixTimestampFrom,
                 }
                 data.push(recordedTransaction);
-                console.log('recordedTransaction:',recordedTransaction)
+                // console.log('recordedTransaction:',recordedTransaction)
             }
-            console.log('data:', data);
+            // console.log('data:', data);
             return data;
 
         },

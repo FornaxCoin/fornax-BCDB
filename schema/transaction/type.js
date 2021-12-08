@@ -25,6 +25,7 @@ const transactionTypeDefs = gql`
         updatedAt: String!,
         block: Block,
         method: Method,
+        timestamp:Int!,
     }
     type RecordedTransaction{
         date: Int!,
@@ -33,8 +34,8 @@ const transactionTypeDefs = gql`
     type RecordAccountTransaction{
         toCount:Int,
         fromCount:Int,
-        toTotal:Int,
-        fromTotal:Int,
+        toTotal:String,
+        fromTotal:String,
         month:String,
     }
     type Logs {

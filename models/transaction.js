@@ -64,6 +64,10 @@ const transactionSchema = new Schema({
         type:String,
         default:""
     },
+    timestamp:{
+        type:Number,
+        default:null
+    },
     logs: [{
         logIndex:{
           type:Number,
