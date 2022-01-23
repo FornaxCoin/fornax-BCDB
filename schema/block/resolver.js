@@ -1,5 +1,6 @@
 const {Block, Transaction} = require('../../models');
 const {ApolloError} = require("apollo-server-express");
+import lodash from 'lodash'
 
 let fetchData = () => {
     return Block.find();
@@ -40,9 +41,9 @@ let SortBy = (sortBy) => {
 }
 
 const resolvers = {
-    Block:{
-        transactions:async (parent)=>{
-            return await Transaction.find({"_id":parent.transactions})
+    Block: {
+        transactions: async (parent) => {
+            return await Transaction.find({"_id": parent.transactions})
         },
     },
     Query: {
@@ -50,7 +51,30 @@ const resolvers = {
             return new ApolloError("Not Allowed", 405);
             return fetchData()
         },
-        blocksWithPagination: async (_,{page, limit, sortBy},{Block})=>{
+        doubleBlocks: async () => {
+            let data = await Block.aggregate([
+                {"$group": {_id: "$number", count: {$sum: 1}}}
+            ])
+            // console.log("Data:", JSON.stringify(data));
+            let totalCount = 0;
+            let totalDocs = 0;
+            let data2 = [];
+            data2 = lodash.filter(data, (o) => {
+                if (o.count > 1) {
+                    totalDocs += 1;
+                    totalCount += o.count;
+                }
+                return (o.count > 1)
+            })
+            let result = {
+                totalDocuments: totalDocs,
+                totalCounts: totalCount,
+                blockCounters: data2
+            }
+            console.log("Data2:", result);
+            return result;
+        },
+        blocksWithPagination: async (_, {page, limit, sortBy}, {Block}) => {
             let sort = SortBy(sortBy)
             console.log(sort)
             const options = {
@@ -59,7 +83,7 @@ const resolvers = {
                 customLabels: BlockLabels,
                 sort: sort,
             };
-            console.log('sortBy:',options)
+            console.log('sortBy:', options)
             let blocks = await Block.paginate({}, options);
             return blocks
         },
@@ -69,20 +93,29 @@ const resolvers = {
             return block;
         },
         blockByNumber: async (_, {blockNumber}) => {
-           try{
-               let block = await Block.findOne({"number": blockNumber});
-               console.log("Block:", block);
-               return block;
-           }catch(err){
-               console.log(err);
-           }
+            try {
+                let block = await Block.findOne({"number": blockNumber});
+                console.log("Block:", block);
+                return block;
+            } catch (err) {
+                console.log(err);
+            }
+        },
+        blocksByNumber: async (_, {blockNumber}) => {
+            try {
+                let block = await Block.find({"number": blockNumber});
+                console.log("Block:", block);
+                return block;
+            } catch (err) {
+                console.log(err);
+            }
         },
         blockByHash: async (_, {blockHash}) => {
             try {
                 const block = await Block.findOne({"hash": blockHash});
                 console.log("Block:", block);
                 return block;
-            }catch(err){
+            } catch (err) {
                 console.log(err);
             }
         },

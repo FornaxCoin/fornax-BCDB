@@ -1,7 +1,15 @@
 const {gql} = require('apollo-server-express');
 
-
-const blockTypeDefs = gql`    
+const blockTypeDefs = gql`
+    type BlockCounter {
+        _id: Int,
+        count:Int
+    }
+    type BlockCounterPaginator {
+        blockCounters:[BlockCounter],
+        totalDocuments:Int!,
+        totalCounts:Int!
+    }
     
     type Block {
         id: ID!,
