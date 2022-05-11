@@ -14,7 +14,6 @@ const transactionQuery = gql`
         transactionsOf14Days: [RecordedTransaction],
         transactionsByMonth(address:String!, network:String): [RecordAccountTransaction],
     },
-    
 
 `;
 

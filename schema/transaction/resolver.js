@@ -1,7 +1,7 @@
 const {Transaction, Block, Method} = require('../../models');
 const {ApolloError} = require("apollo-server-express");
 import Web3 from 'web3';
-import {MAIN_NET_HTTP} from '../../config';
+import {MAIN_NET_HTTP, BSC_SCAN,BSC_SCAN_API, ETH_SCAN_API, ETH_SCAN} from '../../config';
 import lodash from 'lodash';
 import axios from 'axios'
 
@@ -90,7 +90,7 @@ const resolvers = {
 
                 var config = {
                     method: 'get',
-                    url: `https://api-rinkeby.etherscan.io/api?module=account&action=txlist&address=${finalAddress}&startblock=0&endblock=999999999999&sort=desc&apikey=FE36DFQAXYCDPVHJB9IYNCHRCKQ78Y2DCS&page=${page}&offset=${limit}`,
+                    url: `${ETH_SCAN}?module=account&action=txlist&address=${finalAddress}&startblock=0&endblock=999999999999&sort=desc&apikey=${ETH_SCAN_API}&page=${page}&offset=${limit}`,
                     headers: {}
                 };
 
@@ -127,7 +127,7 @@ const resolvers = {
             } else if (network === 'BNB') {
                 var config = {
                     method: 'get',
-                    url: `https://api-testnet.bscscan.com/api?module=account&action=txlist&address=${finalAddress}&startblock=0&endblock=999999999999&sort=desc&apikey=JCPNESV6X3RG9M97UHMZYUX9X8HE7HCAQK&page=${page}&offset=${limit}`,
+                    url: `${BSC_SCAN}?module=account&action=txlist&address=${finalAddress}&startblock=0&endblock=999999999999&sort=desc&apikey=${BSC_SCAN_API}&page=${page}&offset=${limit}`,
                     headers: {}
                 };
 
@@ -235,7 +235,7 @@ const resolvers = {
 
                 var config = {
                     method: 'get',
-                    url: `https://api-rinkeby.etherscan.io/api?module=account&action=txlist&address=${address}&startblock=0&endblock=999999999999&sort=asc&apikey=FE36DFQAXYCDPVHJB9IYNCHRCKQ78Y2DCS`,
+                    url: `${ETH_SCAN}?module=account&action=txlist&address=${address}&startblock=0&endblock=999999999999&sort=asc&apikey=${ETH_SCAN_API}`,
                     headers: {}
                 };
 
@@ -257,7 +257,7 @@ const resolvers = {
             } else if (network === 'BNB') {
                 var config = {
                     method: 'get',
-                    url: `https://api-testnet.bscscan.com/api?module=account&action=txlist&address=${address}&startblock=0&endblock=999999999999&sort=desc&apikey=JCPNESV6X3RG9M97UHMZYUX9X8HE7HCAQK`,
+                    url: `${BSC_SCAN}?module=account&action=txlist&address=${address}&startblock=0&endblock=999999999999&sort=desc&apikey=${BSC_SCAN_API}`,
                     headers: {}
                 };
 

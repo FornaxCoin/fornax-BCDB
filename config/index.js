@@ -22,4 +22,8 @@ export const {
     MAIN_NET_WS = 'wss://node.watchfornax.com/ws',
     MAIN_NET_HTTP= 'https://node.watchfornax.com/rpc',
     MONGO_URI,
+    BSC_SCAN,
+    BSC_SCAN_API,
+    ETH_SCAN,
+    ETH_SCAN_API,
 } = parsed;
